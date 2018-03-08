@@ -1,0 +1,42 @@
+Cat(concatenate ) command is very frequently used in linux.It reads data from file and give their content as output.It helps us to create,view,concatenate files.So let us see some frequently used cat commands
+
+Creating new file $ cat > test
+Unix is an operating System.it was first developed in Bell Labs by Ken Thompson,Dennis Ritchieand many others.
+Unix is a Multitasking and multiuser operating system.
+unix is Portable, supports Networking ,has an organised file System.
+Device Independence and has inbuilt utilities.
+
+Actions performed by cat command:
+
+1. To view a single file:
+	Syntax   
+	$ cat file_name
+   
+2.To view multiple files:
+	Syntax   
+	$ cat file1 file2
+3. To view contents of a file preceding with numbers.
+	Syntax   
+	$ cat file1 file2
+4. To Create a file:
+	Syntax   
+	$ cat > filename 
+5. To copy the contents of one file to the other file.
+	Syntax   
+	$ cat [Filename source] > [destination_filename]
+6. To suppress reapted empty lines in the output
+	Syntax   
+	$ cat -s filename
+7. To append the contents of one file to the end of another file 
+	Syntax   
+	$ cat file1 >> file2
+8. Cat command can display content in reverse order usoing tac command 
+	Syntax   
+	$ tac filename
+Eg:
+Device Independence and has inbuilt utilities.
+unix is Portable, supports Networking ,has an organised file System.
+Unix is a Multitasking and multiuser operating system.
+Unix is an operating System.it was first developed in Bell Labs by Ken Thompson,Dennis Ritchieand many others.
+
+
