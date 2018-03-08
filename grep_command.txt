@@ -1,0 +1,59 @@
+grep options pattern files
+
+Options Description
+
+-c : This prints only a count of the lines that match a pattern
+-h : Display the matched lines, but do not display the filenames.
+-i : Ignores, case for matching
+-l : Displays list of a filenames only.
+-n : Display the matched lines and their line numbers.
+-v : This prints out all the lines that do not matches the pattern
+-e exp : Specifies expression with this option. Can use multiple times.
+-f file : Takes patterns from file, one per line.
+-E : Treats pattern as an extended regular expression 
+-w : Match whole word
+-o : Print only the matched parts of a matching line with each such part on a separate output line.
+
+Text in test1 file:-
+Aggarwal is working in a company.
+Aggrawal works for 10 hours a day.
+Agrawal wakes up at 5 in the morning.
+agrawal is 45 years old.
+aggarwal has been working for 10 years in his company.
+agrawal speaks English and Hindi.
+aggrawal enjoys his weekend with his family.
+
+EXAMPLES:-
+
+1. -c : grep -c "is" test1 
+   5
+2. -h : grep -c "is" test1 
+  Aggarwal is working in a company.
+  agrawal is 45 years old.
+  aggarwal has been working for 10 years in his company.
+  agrawal speaks English and Hindi.
+  aggrawal enjoys his weekend with his family.
+3.-i : grep -i "Aggarwal" test1
+       Aggarwal is working in a company.
+       aggarwal has been working for 10 years in his company.
+4.-l : grep -l "is" test1
+       test1
+
+5.-l : grep -n "is" test1
+       1:Aggarwal is working in a company.
+       4:agrawal is 45 years old.
+       5:aggarwal has been working for 10 years in his company.
+6. -e exp  grep e exp "is" test1
+      test1:Agrawal wakes up at 5 in the morning.
+      test1:agrawal is 45 years old.
+      test1:aggarwal has been working for 10 years in his company.
+      test1:agrawal speaks English and Hindi.
+      test1:aggrawal enjoys his weekend with his family.
+
+       6:agrawal speaks English and Hindi.
+
+6.-v : grep -v "is" test1
+       Aggrawal works for 10 hours a day.
+       Agrawal wakes up at 5 in the morning.
+
+
