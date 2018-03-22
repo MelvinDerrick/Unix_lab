@@ -1,0 +1,109 @@
+AWK COMMAND in UNIX AND SHELL PROGRAMMING
+
+Awk is a scripting language used for manipulating data and generating reports.The awk command programming language requires no compiling, and allows the user to use variables, numeric functions, string functions, and logical operators.
+
+1. AWK Operations:
+(a) Scans a file line by line
+(b) Splits each input line into fields
+(c) Compares input line/fields to pattern
+(d) Performs action(s) on matched lines
+
+2. Useful For:
+(a) Transform data files
+(b) Produce formatted reports
+
+3. Programming Constructs:
+(a) Format output lines
+(b) Arithmetic and string operations
+(c) Conditionals and loops
+
+SYNTAX:-
+
+awk options 'selection _criteria {action }' input-file > output-file
+
+Options:-
+-f program-file : Reads the AWK program source from the file 
+                  program-file, instead of from the 
+                  first command line argument.
+-F fs            : Use fs for the input field separator
+
+Text saved:
+
+$cat > test
+
+Sandeep Managing director 70000
+Aryan Manager sales 45000
+Tarun associate manager 30000
+Varun Manager accounts 50000
+Adith junior Accountant 35000 
+Vijay Executive Manager 55000                           
+Sid Assistant  manager 40000
+
+1. Default behavior of Awk : By default Awk prints every line of data from the specified file.
+
+$ awk '{print}' test
+
+Sandeep Managing director 70000
+Aryan Manager sales 45000
+Tarun associate manager 30000
+Varun Manager accounts 50000
+Adith junior Accountant 35000
+Vijay Executive Manager 55000
+Sid Assistant executive manager 40000
+
+2. Print the lines which matches with the given pattern.
+
+$ awk '/manager/{print}' test
+Tarun associate manager 30000
+Sid Assistant  manager 40000
+
+3. Spliting a Line Into Fields : For each record i.e line, the awk command splits the record delimited by whitespace character by default and stores it in the $n variables. If the line has 4 words, it will be stored in $1, $2, $3 and $4 respectively. Also, $0 represents the whole line.
+
+$ awk '{print $1,$4}' test
+
+Sandeep 70000
+Aryan 45000
+Tarun 30000
+Varun 50000
+Adith 35000
+Vijay 55000
+Sid 40000
+
+Built in variables in awk command:
+
+1. NR variable: NR command keeps a current count of the number of input records. Remember that records are usually lines. Awk command performs the pattern/action statements once for each record in a file.
+
+command:
+awk '{print NR,$0}' test
+
+output:
+1 Sandeep Managing director 70000
+2 Aryan Manager sales 45000
+3 Tarun associate manager 30000
+4 Varun Manager accounts 50000
+5 Adith junior Accountant 35000
+6 Vijay Executive Manager 55000
+7 Sid Assistant manager 40000
+
+2. NF: NF command keeps a count of the number of fields within the current input record.
+
+command:
+awk '{print NF,$0}' test
+output:
+4 Sandeep Managing director 70000
+4 Aryan Manager sales 45000
+4 Tarun associate manager 30000
+4 Varun Manager accounts 50000
+4 Adith junior Accountant 35000 
+4 Vijay Executive Manager 55000
+4 Sid Assistant manager 40000
+
+3. FS: FS command contains the field separator character which is used to divide fields on the input line. The default is “white space”, meaning space and tab characters. FS can be reassigned to another character (typically in BEGIN) to change the field separator.
+
+
+RS: RS command stores the current record separator character. Since, by default, an input line is the input record, the default record separator character is a newline.
+
+OFS: OFS command stores the output field separator, which separates the fields when Awk prints them. The default is a blank space. Whenever print has several parameters separated with commas, it will print the value of OFS in between each parameter.
+
+ORS: ORS command stores the output record separator, which separates the output lines when Awk prints them. The default is a newline character. print automatically outputs the contents of ORS at the end of whatever it is given to print.
+
